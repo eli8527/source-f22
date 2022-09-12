@@ -1,0 +1,1189 @@
+@charset "UTF-8";
+
+*:where(:not(audio, canvas, iframe, img, svg, video):not(svg *, symbol *)) {
+	all: unset;
+	display: revert;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+a,
+button {
+	cursor: revert;
+}
+
+details summary,
+menu,
+ol,
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+textarea {
+	white-space: revert;
+}
+
+::placeholder {
+	all: unset;
+}
+
+/* Disclosure triangles. */
+details ::marker,
+details ::-webkit-details-marker {
+	display: none;
+}
+
+:root {
+	font-feature-settings: "liga", "kern";
+	font-size: 62.5%;
+}
+
+:root * {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	font-kerning: normal;
+	font-smooth: always;
+	text-rendering: optimizeLegibility;
+}
+
+em,
+em em em {
+	font-style: italic;
+}
+
+em em {
+	font-style: normal;
+}
+
+del {
+	font-style: line-through;
+}
+
+nobr,
+.nowrap {
+	white-space: nowrap;
+}
+
+body main > article ul > li,
+body main > article ol > li,
+body main > article figure > figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td {
+	--typography--tracking--override: var(--typography--tracking);
+	--typography--letter-spacing: calc(var(--typography--tracking--override, var(--typography--tracking, 0)) * 1em);
+	--typography--margin--left: calc(var(--typography--inset--left) * 1em);
+	--typography--margin--right: calc(var(--typography--inset--right) * 1em);
+}
+
+body main > article,
+body main > article ul,
+body main > article ol,
+body.index section ul,
+body.schedule section ul,
+body main > article ul > li,
+body main > article ol > li,
+body main > article figure > figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td {
+	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
+	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
+	--typography--leading--remainder: calc((var(--typography--leading) - 1) / 2);
+	--typography--shift: calc((var(--typography--shoulder) + var(--typography--shoulder--top)) * (1 - var(--typography--scale, 1)));
+	--typography--leading--bottom: calc(var(--typography--shoulder--bottom) + var(--typography--leading--remainder) + var(--typography--shift, 0));
+	--typography--leading--top: calc(var(--typography--shoulder--top) + var(--typography--leading--remainder) - var(--typography--shift, 0));
+	--typography--margin--bottom: calc(-1 * var(--typography--leading--bottom) * var(--typography--size--override, var(--typography--size)));
+	--typography--margin--top: calc(-1 * var(--typography--leading--top) * var(--typography--size--override, var(--typography--size)));
+}
+
+body main > article ul > li,
+body main > article ol > li,
+body main > article figure > figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td {
+	color: var(--color);
+	display: block;
+	font-size: var(--typography--font-size);
+	font-weight: var(--typography--weight);
+	letter-spacing: var(--typography--letter-spacing);
+	line-height: var(--typography--line-height);
+	margin-left: var(--typography--margin--left);
+	margin-right: var(--typography--margin--right);
+	max-width: calc(100% - var(--typography--margin--left) - var(--typography--margin--right) + 1px);
+	overflow-wrap: break-word;
+}
+
+@supports (display: flow-root) {
+
+	body main > article ul > li,
+	body main > article ol > li,
+	body main > article figure > figcaption,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	td {
+		display: flow-root;
+	}
+}
+
+body main > article ul > li:before,
+body main > article ol > li:before,
+body main > article figure > figcaption:before,
+body main > article ul > li:after,
+body main > article ol > li:after,
+body main > article figure > figcaption:after,
+h1:before,
+h1:after,
+h2:before,
+h2:after,
+h3:before,
+h3:after,
+h4:before,
+h4:after,
+h5:before,
+h5:after,
+h6:before,
+h6:after,
+p:before,
+p:after,
+td:before,
+td:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+}
+
+body main > article ul > li:before,
+body main > article ol > li:before,
+body main > article figure > figcaption:before,
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before,
+p:before,
+td:before {
+	margin-top: calc(var(--typography--margin--top) - var(--typography--margin--top--shift, 0) * var(--typography--size--override, var(--typography--size)));
+}
+
+body main > article ul > li:after,
+body main > article ol > li:after,
+body main > article figure > figcaption:after,
+h1:after,
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after,
+p:after,
+td:after {
+	margin-bottom: var(--typography--margin--bottom);
+}
+
+td {
+	display: table-cell;
+}
+
+body main > article,
+body main > article ul,
+body main > article ol,
+body.index section ul,
+body.schedule section ul {
+	--typography--cap: calc(var(--typography--cap-height) * 1em);
+	--typography--between: calc(var(--typography--font-size) * (var(--typography--leading) + var(--typography--shoulder) - 1));
+	line-height: var(--typography--line-height);
+	font-size: var(--typography--font-size);
+}
+
+body main > article p strong,
+:root {
+	--typography--shoulder: calc(1 - var(--typography--cap-height));
+	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
+}
+
+body main > article p strong,
+:root {
+	--typography--cap-height: 0.683;
+	--typography--x-height: 0.431;
+	--typography--shoulder--bottom: 0.219;
+	font-family: "CMU Serif", serif;
+}
+
+:root {
+	--typography--weight: 400;
+	--typography--inset--left: -0.037;
+	--typography--inset--right: -0.028;
+	--typography--underline: 0.031;
+	--typography--underline--shift: -0.178;
+	--typography--underline--skip: 0.081;
+}
+
+body main > article p strong {
+	--typography--weight: 700;
+	--typography--inset--left: -0.040;
+	--typography--inset--right: -0.032;
+	--typography--underline: 0.031;
+	--typography--underline--shift: -0.178;
+	--typography--underline--skip: 0.118;
+}
+
+body main > article blockquote.callout[icon]:before {
+	font-family: "Wingdings";
+}
+
+body main > article a,
+body.index main > aside a {
+	--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
+	--typography--text-shadow: calc(var(--typography--underline--skip) * 1em);
+	--typography--underline-offset: calc(var(--typography--underline--shift) * 1em);
+	text-decoration-color: var(--color);
+	text-decoration-line: underline;
+	text-decoration-thickness: var(--typography--decoration-thickness);
+	text-underline-offset: calc(-1 * var(--typography--underline-offset) + var(--typography--decoration-thickness) + var(--typography--underline-offset--extra, 0em));
+}
+
+@supports (-moz-appearance: meterbar) {
+
+	body main > article a,
+	body.index main > aside a {
+		-webkit-text-stroke-color: var(--color--background);
+		-webkit-text-stroke-width: calc(var(--typography--text-shadow) * 2);
+		paint-order: stroke fill;
+		text-decoration-skip-ink: none;
+	}
+}
+
+@supports (-webkit-hyphens: none) {
+
+	body main > article a,
+	body.index main > aside a {
+		-webkit-text-stroke-color: var(--color--background);
+		-webkit-text-stroke-width: calc(var(--typography--text-shadow) * 2);
+		paint-order: stroke fill;
+		text-decoration-skip-ink: none;
+	}
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+	@supports not (-moz-appearance: meterbar) {
+
+		body main > article a,
+		body.index main > aside a {
+			text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 7), var(--color--background) 0 calc(var(--typography--text-shadow) / 7), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 7), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 7), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 7), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 7);
+		}
+	}
+}
+
+body.week #recording a {
+	-webkit-text-stroke: initial;
+	paint-order: initial;
+	text-decoration: initial;
+	text-shadow: initial;
+}
+
+@supports (-webkit-hyphens: none) and (-webkit-touch-callout: none) {
+	@font-face {
+		font-family: "Wingdings";
+		src: url("https://db.onlinewebfonts.com/t/e991cc888d4fb544fe0a88d065ab6efc.woff2") format("woff2");
+	}
+}
+
+@font-face {
+	font-family: "CMU Serif";
+	src: url("cmu/CMUSerif-Italic.woff2") format("woff2"), url("cmu/CMUSerif-Italic.woff") format("woff");
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "CMU Serif";
+	src: url("cmu/CMUSerif-Bold.woff2") format("woff2"), url("cmu/CMUSerif-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CMU Serif";
+	src: url("cmu/CMUSerif-Roman.woff2") format("woff2"), url("cmu/CMUSerif-Roman.woff") format("woff");
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CMU Serif";
+	src: url("cmu/CMUSerif-BoldItalic.woff2") format("woff2"), url("cmu/CMUSerif-BoldItalic.woff") format("woff");
+	font-weight: bold;
+	font-style: italic;
+}
+
+body main nav ul a:focus:focus-visible:not(:disabled),
+body main > article a:focus:focus-visible:not(:disabled),
+body.index main > aside a:focus:focus-visible:not(:disabled),
+body.index section ul a:focus:focus-visible:not(:disabled),
+body.schedule section ul li a:focus:focus-visible:not(:disabled) {
+	border-radius: calc(var(--link--enlargement) / 4);
+	outline-color: var(--link--color);
+	outline-style: solid;
+	outline-width: var(--link--outline--override, var(--link--outline));
+}
+
+body main nav ul a,
+body main > article a,
+body.index main > aside a,
+body.index section ul a,
+body.schedule section ul li a {
+	-webkit-tap-highlight-color: var(--link--highlight);
+	cursor: pointer;
+	transition-duration: var(--link--hover--transition);
+	transition-property: filter;
+	transition-timing-function: linear;
+}
+
+body main nav ul a:active,
+body main > article a:active,
+body.index main > aside a:active,
+body.index section ul a:active,
+body.schedule section ul li a:active {
+	background-color: var(--link--highlight);
+	border-radius: calc(var(--link--enlargement) / 2);
+}
+
+body main nav ul a:focus,
+body main > article a:focus,
+body.index main > aside a:focus,
+body.index section ul a:focus,
+body.schedule section ul li a:focus {
+	outline: none;
+	z-index: 1;
+}
+
+@media (any-hover: hover) {
+
+	body main nav ul a:hover,
+	body main > article a:hover,
+	body.index main > aside a:hover,
+	body.index section ul a:hover,
+	body.schedule section ul li a:hover {
+		filter: opacity(var(--link--hover--opacity));
+	}
+}
+
+body main nav ul a,
+body main > article a,
+body.index main > aside a,
+body.index section ul a,
+body.schedule section ul li a {
+	border-bottom-width: calc(var(--link--enlargement) / 2);
+	border-color: transparent;
+	border-left-width: var(--link--enlargement);
+	border-right-width: var(--link--enlargement);
+	border-style: solid;
+	border-top-width: calc(var(--link--enlargement) / 2);
+	margin-bottom: calc(-1 * var(--link--enlargement) / 2);
+	margin-left: calc(-1 * var(--link--enlargement));
+	margin-right: calc(-1 * var(--link--enlargement));
+	margin-top: calc(-1 * var(--link--enlargement) / 2);
+}
+
+:root {
+	--typography--leading: 1.25;
+	--typography--leading--tight: 1;
+	--typography--leading--base: var(--typography--leading);
+	--typography--size: 1.8rem;
+	--typography--size--h1: calc(var(--typography--size) * 3);
+	--typography--size--h2: calc(var(--typography--size) * 1.6);
+	--typography--size--h3: calc(var(--typography--size) * 1.333);
+	--typography--size--h4: calc(var(--typography--size) * 1.2);
+	--typography--size--base: var(--typography--size);
+	--margin: 2.4rem;
+	--margin--vertical: var(--margin);
+	--margin--vertical--2: calc(var(--margin--vertical) * 2);
+	--margin--vertical--4: calc(var(--margin--vertical) * 4);
+	--page--width: 100vw;
+	--divider--width: 0.1rem;
+	--divider--width--h1: 0.3rem;
+	--color: black;
+	--color--background: white;
+	--color--links: black;
+	--color--links--reverse: white;
+	--color--highlight: hsl(0, 0%, 0%, 3.333%);
+	--color--highlight--reverse: hsl(0, 0%, 100%, 6.666%);
+	--color--transition: 200ms;
+	--link--color: var(--color--links);
+	--link--enlargement: 0.4rem;
+	--link--highlight: var(--color--highlight);
+	--link--outline: 0.2rem;
+	--link--hover--opacity: 0.666;
+	--link--hover--transition: 100ms;
+	--alpha--inactive: 0.333;
+	scroll-behavior: smooth;
+}
+
+@media (any-hover: hover) {
+	:root:hover {
+		--color--highlight: hsl(0, 0%, 0%, 5%);
+		--color--highlight--reverse: hsl(0, 0%, 100%, 20%);
+	}
+}
+
+@supports (-webkit-hyphens: none) and (-webkit-touch-callout: none) {
+	:root {
+		--color--highlight: hsl(0, 0%, 0%, 10%);
+		--color--highlight--reverse: hsl(0, 0%, 100%, 20%);
+	}
+}
+
+@media (max-width: 23.375em) {
+	:root {
+		--typography--size: calc((18/375) * 100vw);
+	}
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	:root {
+		--typography--size: 2rem;
+		--typography--size--h1: calc(var(--typography--size) * 5);
+		--typography--size--h2: calc(var(--typography--size) * 2);
+		--margin: 3.6rem;
+		--divider--width--h1: 0.4rem;
+		--link--enlargement: 0.8rem;
+	}
+}
+
+@media (min-width: 64em) {
+	:root {
+		--margin: 4.8rem;
+		--page--width: 102.4rem;
+	}
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	:root {
+		--margin--vertical: calc(var(--margin) * 0.75);
+	}
+}
+
+@media (min-height: 64em) {
+	:root {
+		--margin--vertical: var(--margin);
+	}
+}
+
+body main {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--page--width);
+	padding-left: calc(var(--margin) + env(safe-area-inset-left, 0rem));
+	padding-right: calc(var(--margin) + env(safe-area-inset-right, 0rem));
+	width: 100%;
+}
+
+body {
+	--color--background--parent: var(--color--background);
+	--link--color: var(--color--links--reverse);
+	--link--highlight: var(--color--highlight--reverse);
+	background-color: var(--color--links);
+}
+
+body > * {
+	--color: var(--color--background--parent);
+	--color--background: var(--color--links);
+}
+
+body h1,
+body h2,
+body h3,
+body h4 {
+	scroll-margin-top: var(--margin--vertical--4);
+}
+
+body h1 {
+	--typography--size: var(--typography--size--h1);
+}
+
+body h2 {
+	--typography--size: var(--typography--size--h2);
+}
+
+body h3 {
+	--typography--size: var(--typography--size--h3);
+}
+
+body h4 {
+	--typography--size: var(--typography--size--h4);
+}
+
+body main {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--margin--vertical--4);
+	margin-top: var(--margin--vertical--4);
+	margin-bottom: var(--margin--vertical--4);
+}
+
+body main header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+body main nav ul {
+	display: flex;
+	gap: var(--margin);
+	justify-content: center;
+}
+
+body main > article {
+	--typography--leading-shoulder: calc(var(--typography--font-size) * (var(--typography--leading) + var(--typography--shoulder) * 2));
+}
+
+body main > article > *:not(:first-child) {
+	margin-top: var(--margin--top, var(--typography--leading-shoulder));
+}
+
+body main > article h1 {
+	display: none;
+}
+
+body main > article p {
+	max-width: 75ch;
+}
+
+body main > article p strong {
+	font-weight: var(--typography--weight);
+}
+
+body main > article a {
+	--color: var(--link--color);
+	color: var(--link--color);
+}
+
+body main > article hr {
+	background-color: var(--color);
+	height: var(--divider--width);
+}
+
+body main > article ul,
+body main > article ol {
+	display: grid;
+	gap: var(--typography--between);
+	grid-template-columns: minmax(0, 1fr);
+	list-style-position: outside;
+}
+
+body main > article ul > li,
+body main > article ol > li {
+	display: list-item;
+	margin-bottom: var(--typography--margin--bottom);
+	margin-top: var(--typography--margin--top);
+	max-width: 70ch;
+}
+
+body main > article ul > li:before,
+body main > article ul > li:after,
+body main > article ol > li:before,
+body main > article ol > li:after {
+	display: none;
+}
+
+body main > article ul > li > h3,
+body main > article ul > li > h4,
+body main > article ul > li > p,
+body main > article ul > li > div,
+body main > article ol > li > h3,
+body main > article ol > li > h4,
+body main > article ol > li > p,
+body main > article ol > li > div {
+	--padding-left: calc(var(--typography--size--base) * 0.333);
+	padding-left: var(--padding-left);
+}
+
+body main > article ul > li > h3:first-child:before,
+body main > article ul > li > h3:last-child:after,
+body main > article ul > li > h4:first-child:before,
+body main > article ul > li > h4:last-child:after,
+body main > article ul > li > p:first-child:before,
+body main > article ul > li > p:last-child:after,
+body main > article ul > li > div:first-child:before,
+body main > article ul > li > div:last-child:after,
+body main > article ol > li > h3:first-child:before,
+body main > article ol > li > h3:last-child:after,
+body main > article ol > li > h4:first-child:before,
+body main > article ol > li > h4:last-child:after,
+body main > article ol > li > p:first-child:before,
+body main > article ol > li > p:last-child:after,
+body main > article ol > li > div:first-child:before,
+body main > article ol > li > div:last-child:after {
+	display: none;
+}
+
+body main > article ul > li > h3 ~ *,
+body main > article ul > li > h4 ~ *,
+body main > article ul > li > p ~ *,
+body main > article ul > li > div ~ *,
+body main > article ol > li > h3 ~ *,
+body main > article ol > li > h4 ~ *,
+body main > article ol > li > p ~ *,
+body main > article ol > li > div ~ * {
+	--padding-left: calc(var(--typography--size--base) * 0.333);
+}
+
+body main > article ul > li > h3:not(:first-child),
+body main > article ul > li > h4:not(:first-child),
+body main > article ul > li > p:not(:first-child),
+body main > article ul > li > h3 ~ ul:not(:first-child),
+body main > article ul > li > h4 ~ ul:not(:first-child),
+body main > article ul > li > p ~ ul:not(:first-child),
+body main > article ul > li > h3 ~ ol:not(:first-child),
+body main > article ul > li > h4 ~ ol:not(:first-child),
+body main > article ul > li > p ~ ol:not(:first-child),
+body main > article ul > li > div:not(:first-child),
+body main > article ol > li > h3:not(:first-child),
+body main > article ol > li > h4:not(:first-child),
+body main > article ol > li > p:not(:first-child),
+body main > article ol > li > h3 ~ ul:not(:first-child),
+body main > article ol > li > h4 ~ ul:not(:first-child),
+body main > article ol > li > p ~ ul:not(:first-child),
+body main > article ol > li > h3 ~ ol:not(:first-child),
+body main > article ol > li > h4 ~ ol:not(:first-child),
+body main > article ol > li > p ~ ol:not(:first-child),
+body main > article ol > li > div:not(:first-child) {
+	margin-top: var(--typography--leading-shoulder);
+}
+
+body main > article ul > li > h3:last-child,
+body main > article ul > li > h4:last-child,
+body main > article ul > li > p:last-child,
+body main > article ul > li > h3 ~ ul:last-child,
+body main > article ul > li > h4 ~ ul:last-child,
+body main > article ul > li > p ~ ul:last-child,
+body main > article ul > li > h3 ~ ol:last-child,
+body main > article ul > li > h4 ~ ol:last-child,
+body main > article ul > li > p ~ ol:last-child,
+body main > article ul > li > div:last-child,
+body main > article ol > li > h3:last-child,
+body main > article ol > li > h4:last-child,
+body main > article ol > li > p:last-child,
+body main > article ol > li > h3 ~ ul:last-child,
+body main > article ol > li > h4 ~ ul:last-child,
+body main > article ol > li > p ~ ul:last-child,
+body main > article ol > li > h3 ~ ol:last-child,
+body main > article ol > li > h4 ~ ol:last-child,
+body main > article ol > li > p ~ ol:last-child,
+body main > article ol > li > div:last-child {
+	margin-bottom: calc(var(--typography--font-size) * var(--typography--leading));
+}
+
+body main > article ul > li > h3:not(:only-child):last-child,
+body main > article ul > li > h4:not(:only-child):last-child,
+body main > article ul > li > p:not(:only-child):last-child,
+body main > article ul > li > h3 ~ ul:not(:only-child):last-child,
+body main > article ul > li > h4 ~ ul:not(:only-child):last-child,
+body main > article ul > li > p ~ ul:not(:only-child):last-child,
+body main > article ul > li > h3 ~ ol:not(:only-child):last-child,
+body main > article ul > li > h4 ~ ol:not(:only-child):last-child,
+body main > article ul > li > p ~ ol:not(:only-child):last-child,
+body main > article ul > li > div:not(:only-child):last-child,
+body main > article ol > li > h3:not(:only-child):last-child,
+body main > article ol > li > h4:not(:only-child):last-child,
+body main > article ol > li > p:not(:only-child):last-child,
+body main > article ol > li > h3 ~ ul:not(:only-child):last-child,
+body main > article ol > li > h4 ~ ul:not(:only-child):last-child,
+body main > article ol > li > p ~ ul:not(:only-child):last-child,
+body main > article ol > li > h3 ~ ol:not(:only-child):last-child,
+body main > article ol > li > h4 ~ ol:not(:only-child):last-child,
+body main > article ol > li > p ~ ol:not(:only-child):last-child,
+body main > article ol > li > div:not(:only-child):last-child {
+	margin-bottom: calc(2 * var(--typography--font-size) * var(--typography--leading));
+}
+
+body main > article ul > li:last-child > *:last-child:not(._),
+body main > article ol > li:last-child > *:last-child:not(._) {
+	margin-bottom: initial;
+}
+
+body main > article ul {
+	list-style-type: "⦁";
+	padding-left: 0.333em;
+}
+
+body main > article ul > li {
+	padding-left: 0.666em;
+}
+
+body main > article ul.no-marker {
+	list-style-type: none;
+	padding-left: initial;
+}
+
+body main > article ul.no-marker > li {
+	padding-left: initial;
+}
+
+body main > article ul.no-marker > li > * {
+	padding-left: initial;
+}
+
+body main > article ul ul {
+	list-style-type: "⚬";
+	margin-left: var(--padding-left);
+	padding-left: 0.45em;
+}
+
+body main > article ul ul ul {
+	list-style-type: "⦁";
+	padding-left: 0.333em;
+}
+
+body main > article ol {
+	counter-reset: list;
+}
+
+body main > article ol > li {
+	padding-left: 1.666em;
+	position: relative;
+}
+
+body main > article ol > li:before {
+	content: counter(list) ".";
+	counter-increment: list;
+	display: block;
+	position: absolute;
+	visibility: visible;
+	left: 0;
+	top: calc(var(--typography--margin--top) * -1);
+}
+
+body main > article table {
+	width: fit-content;
+}
+
+body main > article table tr:not(:first-child) > td {
+	border-top: var(--typography--leading-shoulder) solid transparent;
+}
+
+body main > article table tr > td:not(:first-child) {
+	border-left: var(--margin) solid transparent;
+}
+
+body main > article table.row-header thead {
+	display: none;
+}
+
+body main > article table.row-header td:first-child {
+	--typography--size: var(--typography--size--h4);
+}
+
+body main > article blockquote {
+	--margin--top: var(--margin--vertical--2);
+}
+
+body main > article blockquote > *:not(:first-child) {
+	margin-top: var(--typography--leading-shoulder);
+}
+
+body main > article blockquote.callout {
+	--padding: calc(var(--typography--cap) * 2);
+	border-color: var(--color);
+	border-style: solid;
+	border-width: var(--divider--width);
+	font-style: normal;
+	padding: var(--padding);
+	position: relative;
+}
+
+body main > article blockquote.callout[icon] {
+	padding-left: calc(2 * var(--padding) + 1em);
+}
+
+body main > article blockquote.callout[icon]:before {
+	content: attr(icon);
+	left: var(--padding);
+	margin-top: var(--typography--margin--top);
+	position: absolute;
+	text-align: center;
+	top: var(--padding);
+	transform: scale(1.333);
+	width: 1em;
+}
+
+body main > article blockquote:not(.callout) {
+	border-left-color: var(--color);
+	border-left-style: solid;
+	border-left-width: var(--divider--width);
+	font-style: italic;
+	padding-left: var(--margin);
+	padding-right: var(--margin);
+}
+
+body main > article blockquote:not(.callout) + p {
+	--margin--top: var(--typography--leading-shoulder);
+	font-style: italic;
+}
+
+body main > article blockquote:not(.callout) + p > em,
+body main > article blockquote:not(.callout) + p > cite {
+	font-style: normal;
+}
+
+body main > article blockquote:not(.callout) + p + * {
+	--margin--top: var(--margin--vertical--2);
+	--margin--top--previous: var(--typography--leading-shoulder);
+}
+
+body main > article blockquote:not(.callout) + p + * + * {
+	--margin--top--previous: var(--margin--vertical--2);
+}
+
+body main > article blockquote.quote {
+	--margin--top: var(--margin--vertical--4);
+	--typography--size: var(--typography--size--h3);
+}
+
+body main > article blockquote.quote + p + * {
+	--margin--top: var(--margin--vertical--4);
+}
+
+body main > article blockquote.quote + p + * + * {
+	--margin--top--previous: var(--margin--vertical--4);
+}
+
+body main > article blockquote + * {
+	--margin--top: var(--margin--vertical--2);
+	--margin--top--previous: var(--typography--leading-shoulder);
+}
+
+body main > article blockquote + * + * {
+	--margin--top--previous: var(--margin--vertical--2);
+}
+
+body main > article figure {
+	--margin--top: var(--margin--vertical--2);
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+}
+
+body main > article figure > img {
+	max-height: var(--max--height, 66vh);
+	object-fit: contain;
+	object-position: left;
+}
+
+body main > article figure > iframe {
+	aspect-ratio: var(--aspect--ratio, 16/9);
+	border-color: var(--color);
+	border-style: solid;
+	border-width: var(--divider--width);
+	display: block;
+	max-width: 100%;
+	width: 100vw;
+}
+
+@supports (-webkit-hyphens: none) {
+	body main > article figure > iframe[src*="drive.google.com"] {
+		display: none;
+	}
+
+	body main > article figure > iframe[src*="drive.google.com"] + figcaption {
+		font-size: 0rem;
+		margin-bottom: calc(-1 * var(--typography--shoulder) * var(--typography--font-size) + var(--typography--margin--bottom));
+		margin-top: initial;
+		max-width: initial;
+		visibility: hidden;
+	}
+
+	body main > article figure > iframe[src*="drive.google.com"] + figcaption:after {
+		content: "Safari security settings prevent Google Drive embeds—so you’ll need to go to the original.";
+		display: inline-block;
+		font-size: var(--typography--font-size);
+		font-style: italic;
+		max-width: 70ch;
+		visibility: visible;
+	}
+}
+
+body main > article figure > figcaption {
+	--typography--leading: var(--typography--leading--tight);
+	font-style: italic;
+	margin-top: var(--typography--between);
+	max-width: 70ch;
+}
+
+body main > article figure > figcaption > em,
+body main > article figure > figcaption > cite {
+	font-style: normal;
+}
+
+body main > article figure + * {
+	--margin--top: var(--margin--vertical--2);
+	--margin--top--previous: var(--margin--vertical--2);
+}
+
+body main > article figure + * + * {
+	--margin--top--previous: var(--margin--vertical--2);
+}
+
+body main > article aside {
+	--margin--top: var(--margin--vertical--2);
+}
+
+body main > article aside > figure:not(:first-child) {
+	margin-top: var(--typography--between);
+}
+
+body main > article aside + * {
+	--margin--top: var(--margin--vertical--2);
+}
+
+@media (min-width: 35.5em) {
+	body main > article aside + * {
+		--margin--top: var(--margin--top--previous);
+	}
+}
+
+body main > article h2 {
+	--margin--top: var(--margin--vertical--4);
+}
+
+body main > article h2 + * {
+	--margin--top: var(--margin--vertical--2);
+	--margin--top--previous: var(--margin--vertical--4);
+}
+
+body main > article h2 + * + * {
+	--margin--top--previous: var(--margin--vertical--2);
+}
+
+body main > article h3 {
+	--margin--top: var(--margin--vertical--2);
+}
+
+body main > article hr,
+body main > article .callout {
+	--margin--top: var(--margin--vertical--4);
+}
+
+body main > article hr + *,
+body main > article .callout + * {
+	--margin--top: var(--margin--vertical--4);
+	--margin--top--previous: var(--margin--vertical--4);
+}
+
+body main > article hr + * + *,
+body main > article .callout + * + * {
+	--margin--top--previous: var(--margin--vertical--4);
+}
+
+body main > article .two-above {
+	--margin--top: var(--margin--vertical--2);
+}
+
+body main > article .two-above + * {
+	--margin--top--previous: var(--margin--vertical--2);
+}
+
+body main > article .two-below + * {
+	--margin--top: var(--margin--vertical--2);
+}
+
+body main > article .four-above {
+	--margin--top: var(--margin--vertical--4);
+}
+
+body main > article .four-above + * {
+	--margin--top--previous: var(--margin--vertical--4);
+}
+
+body main > article .four-below + * {
+	--margin--top: var(--margin--vertical--4);
+}
+
+body main > article .faded {
+	opacity: 0.4;
+}
+
+@media (min-width: 35.5em) {
+	body main > article {
+		align-items: start;
+		display: grid;
+		grid-auto-rows: min-content;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		column-gap: var(--margin);
+	}
+
+	body main > article > * {
+		grid-column: 1/span 3;
+	}
+
+	body main > article .left {
+		grid-column: 1/span 2;
+		padding-right: var(--margin);
+	}
+
+	body main > article .left:first-child + .right,
+	body main > article .left:first-child + aside {
+		--margin--top: 0rem;
+	}
+
+	body main > article .left:not(:first-child) + .right,
+	body main > article .left:not(:first-child) + aside {
+		--margin--top: var(--margin--top--previous);
+	}
+
+	body main > article .right,
+	body main > article aside {
+		grid-column: 3/span 1;
+	}
+
+	body main > article .left[rows="1"],
+	body main > article .right[rows="1"],
+	body main > article aside[rows="1"] {
+		grid-row: span 1;
+	}
+
+	body main > article .left[rows="2"],
+	body main > article .right[rows="2"],
+	body main > article aside[rows="2"] {
+		grid-row: span 2;
+	}
+
+	body main > article .left[rows="3"],
+	body main > article .right[rows="3"],
+	body main > article aside[rows="3"] {
+		grid-row: span 3;
+	}
+
+	body main > article .left[rows="4"],
+	body main > article .right[rows="4"],
+	body main > article aside[rows="4"] {
+		grid-row: span 4;
+	}
+
+	body main > article .left[rows="5"],
+	body main > article .right[rows="5"],
+	body main > article aside[rows="5"] {
+		grid-row: span 5;
+	}
+
+	body main > article .left[rows="6"],
+	body main > article .right[rows="6"],
+	body main > article aside[rows="6"] {
+		grid-row: span 6;
+	}
+
+	body main > article .left[rows="7"],
+	body main > article .right[rows="7"],
+	body main > article aside[rows="7"] {
+		grid-row: span 7;
+	}
+
+	body main > article .left[rows="8"],
+	body main > article .right[rows="8"],
+	body main > article aside[rows="8"] {
+		grid-row: span 8;
+	}
+
+	body main > article .left[rows="9"],
+	body main > article .right[rows="9"],
+	body main > article aside[rows="9"] {
+		grid-row: span 9;
+	}
+
+	body main > article .left[rows="10"],
+	body main > article .right[rows="10"],
+	body main > article aside[rows="10"] {
+		grid-row: span 10;
+	}
+
+	body main > article .left[rows="11"],
+	body main > article .right[rows="11"],
+	body main > article aside[rows="11"] {
+		grid-row: span 11;
+	}
+
+	body main > article .left[rows="12"],
+	body main > article .right[rows="12"],
+	body main > article aside[rows="12"] {
+		grid-row: span 12;
+	}
+}
+
+body.index main > article * {
+	max-width: initial;
+}
+
+body.index main > aside {
+	text-align: center;
+}
+
+body.index section {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--margin);
+	text-align: center;
+}
+
+body.index section ul {
+	margin-top: var(--margin);
+	display: grid;
+	gap: var(--typography--between);
+}
+
+body.schedule section ul {
+	display: grid;
+	text-align: center;
+	gap: var(--margin);
+}
+
+body.schedule section ul li.inactive {
+	opacity: 0.4;
+}
+
+body.schedule section ul li p {
+	margin-top: var(--typography--line-height);
+}
+
+body.week #recording {
+	text-align: center;
+}
