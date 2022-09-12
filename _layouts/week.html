@@ -1,0 +1,11 @@
+---
+layout: page
+---
+
+
+
+{{ content }}
+{% assign index = site.pages | where: 'layout', 'index' | first %}
+{% if page.video %}
+	<h2 id="recording"><a href="{{page.video}}">Watch Recording</a></h2>
+{% endif %}

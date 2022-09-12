@@ -1,0 +1,28 @@
+defaults:
+  - scope:
+      path: index
+    values:
+      layout: index
+  - scope:
+      path: project
+    values:
+      layout: project
+  - scope:
+      path: topic
+    values:
+      layout: topic
+  - scope:
+      path: week
+    values:
+      layout: week
+  - scope:
+      path: ""
+    values:
+      layout: page
+livereload: true
+permalink: /:basename/
+sass:
+  implementation: sass-embedded
+  sass_dir:       assets/styles
+  sourcemap:      never
+theme: null

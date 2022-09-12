@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+
+<main>
+	<header>
+		<h1>{{ page.title }}</p></h1>
+	</header>
+	{% include nav.html%}
+	<section>
+    {% include sorted_weeks.html %}
+    <ul>
+      {% for week in weeks %}
+        <li {% if week.active == false %}class="inactive"{% endif %}>
+          <h3>
+            {% if week.active %}<a href="{{week.url}}">{% endif %}
+              Week {{week.name | split: '.' | first}}, {{week.date | date: "%B %-d"}}
+            {% if week.active %}</a>{% endif %}
+          </h3>
+          {{week.summary | markdownify}}
+        </li>
+      {% endfor %}
+    </ul>
+	</section>
+</main>
+

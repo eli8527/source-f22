@@ -1,0 +1,414 @@
+> article {
+	@extend %type--layout;
+
+	--typography--leading-shoulder: calc(var(--typography--font-size) * (var(--typography--leading) + var(--typography--shoulder) * 2));
+
+
+
+	// Sequential spacing between `p`.
+	> *:not(:first-child) { margin-top: var(--margin--top, var(--typography--leading-shoulder)) }
+
+
+
+	h1 { display: none } // So we don’t forget.
+
+	p {
+		max-width: 75ch;
+
+		strong {
+			@extend %font--cmu--bold;
+
+			font-weight: var(--typography--weight);
+		}
+	}
+
+	a {
+		@extend %link--text;
+		@extend %font--underline; // TODO This is causing the crispy in Safari.
+
+		--color: var(--link--color);
+
+		color: var(--link--color);
+	}
+
+	// Dividers.
+	hr {
+		background-color: var(--color);
+		height:           var(--divider--width);
+	}
+
+
+
+	// Lists.
+	ul,
+	ol {
+		@extend %type--layout;
+
+		display:               grid;
+		gap:                   var(--typography--between);
+		grid-template-columns: minmax(0, 1fr); // Since “auto” is the min otherwise.
+		list-style-position:   outside;
+
+		> li {
+			@extend %typography; // For paragraph-less lists.
+
+			display:       list-item;
+			margin-bottom: var(--typography--margin--bottom);
+			margin-top:    var(--typography--margin--top);
+			max-width:     70ch;
+
+			&:before, &:after { display: none } // Collides with the marker, so we use the margin.
+
+			> h3,
+			> h4,
+			> p,
+			> div {
+				--padding-left: calc(var(--typography--size--base) * 0.333);
+
+				padding-left: var(--padding-left); // More space for paragraph lists.
+
+				&:first-child:before,
+				&:last-child:after { display: none }; // Since the `li` is a type element.
+
+				~ * { --padding-left: calc(var(--typography--size--base) * 0.333) } // For nested lists, below.
+			}
+
+			> h3,
+			> h4,
+			> p,
+			> h3 ~ ul,
+			> h4 ~ ul,
+			> p ~ ul,
+			> h3 ~ ol,
+			> h4 ~ ol,
+			> p ~ ol,
+			> div {
+				&:not(:first-child) { margin-top: var(--typography--leading-shoulder) }
+				&:last-child { margin-bottom: calc(var(--typography--font-size) * var(--typography--leading)) }
+				&:not(:only-child):last-child { margin-bottom: calc(2 * var(--typography--font-size) * var(--typography--leading)) }
+			}
+
+			&:last-child > *:last-child:not(._) { margin-bottom: initial }
+		}
+	}
+
+	ul {
+		list-style-type: '⦁';
+		padding-left:    0.333em;
+
+		> li { padding-left: 0.666em }
+
+		&.no-marker {
+
+			list-style-type: none;
+			padding-left:    initial;
+
+
+			> li {
+				padding-left: initial;
+
+				> * { padding-left: initial }
+			}
+		}
+
+		ul { // Nested.
+			list-style-type: '⚬';
+			margin-left:     var(--padding-left);
+			padding-left:    0.45em;
+
+			ul {
+				list-style-type: '⦁';
+				padding-left:    0.333em;
+			}
+		}
+	}
+
+	ol {
+		counter-reset: list;
+
+		> li {
+			padding-left: 1.666em;
+			position:     relative;
+
+			&:before {
+				content:           counter(list) '.';
+				counter-increment: list;
+				display:           block;
+				position:          absolute;
+				visibility:        visible;
+				left:              0;
+				top:               calc(var(--typography--margin--top) * -1);
+			}
+		}
+	}
+
+
+
+	// Tables.
+	table {
+		width: fit-content;
+
+		tr:not(:first-child) > td { border-top: var(--typography--leading-shoulder) solid transparent }
+		tr > td:not(:first-child) { border-left: var(--margin) solid transparent }
+
+		&.row-header {
+			thead { display: none }
+
+			td:first-child { --typography--size: var(--typography--size--h4) }
+		}
+	}
+
+
+
+	// Quotes/callouts.
+	blockquote {
+		--margin--top: var(--margin--vertical--2);
+
+		> *:not(:first-child) { margin-top: var(--typography--leading-shoulder) }
+
+		&.callout {
+			--padding: calc(var(--typography--cap) * 2);
+
+			border-color: var(--color);
+			border-style: solid;
+			border-width: var(--divider--width);
+			font-style:   normal;
+			padding:      var(--padding);
+			position:     relative;
+
+			&[icon] {
+				padding-left: calc(2 * var(--padding) + 1em);
+
+				&:before {
+					@extend %font--wingdings;
+
+					content:          attr(icon);
+					left:             var(--padding);
+					margin-top:       var(--typography--margin--top);
+					position:         absolute;
+					text-align:       center;
+					top:              var(--padding);
+					transform:        scale(1.333); // This might need to be params.
+					width:            1em;
+				}
+			}
+		}
+
+		&:not(.callout) {
+			border-left-color: var(--color);
+			border-left-style: solid;
+			border-left-width: var(--divider--width);
+			font-style:        italic;
+			padding-left:      var(--margin);
+			padding-right:     var(--margin);
+
+			// Caption/credit.
+			+ p {
+				--margin--top: var(--typography--leading-shoulder);
+
+				font-style: italic;
+
+				> em, > cite { font-style: normal }
+
+				+ * {
+					--margin--top:           var(--margin--vertical--2);
+					--margin--top--previous: var(--typography--leading-shoulder);
+
+					+ * { --margin--top--previous: var(--margin--vertical--2) }
+				}
+			}
+		}
+
+		&.quote {
+			--margin--top: var(--margin--vertical--4);
+
+			--typography--size: var(--typography--size--h3);
+
+			+ p + * {
+				--margin--top: var(--margin--vertical--4);
+
+				+ * { --margin--top--previous: var(--margin--vertical--4) }
+			}
+		}
+
+		+ * {
+			--margin--top:           var(--margin--vertical--2);
+			--margin--top--previous: var(--typography--leading-shoulder);
+
+			+ * { --margin--top--previous: var(--margin--vertical--2) }
+		}
+	}
+
+	// Images and videos!
+	figure {
+		--margin--top: var(--margin--vertical--2);
+
+		display:        flex;
+		flex-direction: column;
+		width:          fit-content;
+
+		> img {
+			max-height:      var(--max--height, 66vh);
+			object-fit:      contain; // This will do, for now.
+			object-position: left;
+		}
+
+		> iframe {
+			aspect-ratio: var(--aspect--ratio, 16 / 9);
+			border-color: var(--color);
+			border-style: solid;
+			border-width: var(--divider--width);
+			display:      block;
+			max-width:    100%;
+			width:        100vw;
+
+			@include browser-specific(safari) {
+				&[src*="drive.google.com"] {
+					display: none;
+
+					+ figcaption {
+						font-size:     0rem;
+						margin-bottom: calc(-1 * var(--typography--shoulder) * var(--typography--font-size) + var(--typography--margin--bottom));
+						margin-top:    initial;
+						max-width:     initial;
+						visibility:    hidden;
+
+						// Show a warning.
+						&:after {
+							content:    'Safari security settings prevent Google Drive embeds—so you’ll need to go to the original.';
+							display:    inline-block;
+							font-size:  var(--typography--font-size);
+							font-style: italic;
+							max-width:  70ch;
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+
+		> figcaption {
+			@extend %typography;
+
+			--typography--leading: var(--typography--leading--tight);
+
+			font-style: italic;
+			margin-top: var(--typography--between);
+			max-width:  70ch;
+
+			> em, > cite { font-style: normal }
+		}
+
+		+ * {
+			--margin--top:           var(--margin--vertical--2);
+			--margin--top--previous: var(--margin--vertical--2);
+
+			+ * { --margin--top--previous: var(--margin--vertical--2) }
+		}
+	}
+
+
+
+	aside {
+		@extend .right;
+
+		--margin--top: var(--margin--vertical--2);
+
+		> figure:not(:first-child) { margin-top: var(--typography--between) }
+
+		+ * {
+			--margin--top: var(--margin--vertical--2);
+
+			@include breakpoint(568) { --margin--top: var(--margin--top--previous) }
+		}
+	}
+
+
+
+	// Lower for the cascade.
+	h2 {
+		--margin--top: var(--margin--vertical--4);
+
+		+ * {
+			--margin--top:           var(--margin--vertical--2); // Think of this as its margin-bottom.
+			--margin--top--previous: var(--margin--vertical--4);
+
+			+ * { --margin--top--previous: var(--margin--vertical--2) } // Think of this as its margin-bottom.
+		}
+	}
+
+	h3 { --margin--top: var(--margin--vertical--2) }
+
+
+
+	// Lower, cascade.
+	hr,
+	.callout {
+		--margin--top: var(--margin--vertical--4);
+
+		+ * {
+			--margin--top:           var(--margin--vertical--4);
+			--margin--top--previous: var(--margin--vertical--4);
+
+			+ * { --margin--top--previous: var(--margin--vertical--4) }
+		}
+	}
+
+
+
+	// Manual spacing decisions.
+	.two-above {
+		--margin--top: var(--margin--vertical--2);
+
+		+ * { --margin--top--previous: var(--margin--vertical--2) }
+	}
+
+	.two-below + * { --margin--top: var(--margin--vertical--2) }
+
+	.four-above {
+		--margin--top: var(--margin--vertical--4);
+
+		+ * { --margin--top--previous: var(--margin--vertical--4) }
+	}
+
+	.four-below + * { --margin--top: var(--margin--vertical--4) }
+
+
+
+	// “Disabled” looking stuff.
+	.faded { opacity: 0.4 }
+
+
+
+	// Column stuff.
+	@include breakpoint(568) {
+		align-items:           start;
+		display:               grid;
+		grid-auto-rows:        min-content;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		column-gap:            var(--margin);
+
+		> * { grid-column: 1 / span 3 } // Everything full width, by default.
+
+		.left {
+			grid-column:   1 / span 2;
+			padding-right: var(--margin);
+
+			&:first-child + .right { --margin--top: 0rem } // Not `initial` to prevent fallback.
+			&:not(:first-child) + .right { --margin--top: var(--margin--top--previous) }
+		}
+
+		.right {
+			grid-column: 3 / span 1;
+		}
+
+		.left,
+		.right {
+			@for $row from 1 through 12 {
+				&[rows="#{$row}"] {
+					grid-row: span $row;
+				}
+			}
+		}
+	}
+}

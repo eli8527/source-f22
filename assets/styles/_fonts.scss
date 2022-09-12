@@ -1,0 +1,357 @@
+@use "utilities" as *;
+
+
+
+%--shoulders {
+	--typography--shoulder:      calc(1 - var(--typography--cap-height)); // Remainder/overhang.
+	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
+}
+
+%--sf {
+	@extend %--shoulders;
+
+	--typography--cap-height:       0.705; // In em.
+	--typography--x-height:         0.508;
+	--typography--shoulder--bottom: 0.122; // Vertical centering in Chrome’s bounding box, across most sizes.
+
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+%--sf--mono {
+	@extend %--shoulders;
+
+	--typography--cap-height:       0.705;
+	--typography--x-height:         0.526;
+	--typography--shoulder--bottom: 0.145;
+
+	font-family: 'SF Mono', ui-monospace, monospace;
+}
+
+%--cmu {
+	@extend %--shoulders;
+
+	--typography--cap-height:       0.683;
+	--typography--x-height:         0.431;
+	--typography--shoulder--bottom: 0.219;
+
+	font-family:           'CMU Serif', serif;
+}
+
+
+
+// Standard SF.
+%font--sf--ultra-light {
+	@extend %--sf;
+
+	--typography--weight: 100;
+
+	--typography--inset--left:  -0.060; // Optical insets, left edge of capital "M".
+	--typography--inset--right: -0.053; // Right edge of lowercase “m” (since lines tend to end lowercase).
+
+	--typography--underline:         0.022; // Height of crossbar on lowercase “e”.
+	--typography--underline--shift: -0.127; // Shift down from baseline, to line up with bottom of descenders.
+	--typography--underline--skip:   0.025; // Can’t exceed narrowest descender width, with this shadow implementation.
+}
+
+%font--sf--thin {
+	@extend %--sf;
+
+	--typography--weight: 200;
+
+	--typography--inset--left:  -0.062;
+	--typography--inset--right: -0.052;
+
+	--typography--underline:         0.032;
+	--typography--underline--shift: -0.107;
+	--typography--underline--skip:   0.038;
+}
+
+%font--sf--light {
+	@extend %--sf;
+
+	--typography--weight: 300;
+
+	--typography--inset--left:  -0.065;
+	--typography--inset--right: -0.053;
+
+	--typography--underline:         0.051;
+	--typography--underline--shift: -0.069;
+	--typography--underline--skip:   0.064;
+}
+
+%font--sf--regular {
+	@extend %--sf;
+
+	--typography--weight: 400;
+
+	--typography--inset--left:  -0.068;
+	--typography--inset--right: -0.052;
+
+	--typography--underline:         0.066;
+	--typography--underline--shift: -0.039;
+	--typography--underline--skip:   0.085;
+}
+
+%font--sf--medium {
+	@extend %--sf;
+
+	--typography--weight: 500;
+
+	--typography--inset--left:  -0.064;
+	--typography--inset--right: -0.049;
+
+	--typography--underline:         0.075;
+	--typography--underline--shift: -0.021;
+	--typography--underline--skip:   0.087;
+}
+
+%font--sf--semibold {
+	@extend %--sf;
+
+	--typography--weight: 600;
+
+	--typography--inset--left:  -0.062;
+	--typography--inset--right: -0.047;
+
+	--typography--underline:         0.082;
+	--typography--underline--shift: -0.007;
+	--typography--underline--skip:   0.089;
+}
+
+%font--sf--bold {
+	@extend %--sf;
+
+	--typography--weight: 700;
+
+	--typography--inset--left:  -0.058;
+	--typography--inset--right: -0.044;
+
+	--typography--underline:        0.091;
+	--typography--underline--shift: 0.011;
+	--typography--underline--skip:  0.091;
+}
+
+%font--sf--heavy {
+	@extend %--sf;
+
+	--typography--weight: 800;
+
+	--typography--inset--left:  -0.053;
+	--typography--inset--right: -0.040;
+
+	--typography--underline:        0.103;
+	--typography--underline--shift: 0.035;
+	--typography--underline--skip:  0.103;
+}
+
+%font--sf--black {
+	@extend %--sf;
+
+	--typography--weight: 900;
+
+	--typography--inset--left:  -0.048;
+	--typography--inset--right: -0.035;
+
+	--typography--underline:        0.113;
+	--typography--underline--shift: 0.055;
+	--typography--underline--skip:  0.113;
+}
+
+
+
+// SF Mono.
+%font--sf--mono--light {
+	@extend %--sf--mono;
+
+	--typography--weight: 300;
+
+	--typography--inset--left:  -0.058;
+	--typography--inset--right: -0.060;
+
+	--typography--underline:         0.053;
+	--typography--underline--shift: -0.072;
+	--typography--underline--skip:   0.064;
+}
+
+%font--sf--mono--regular {
+	@extend %--sf--mono;
+
+	--typography--weight: 400;
+
+	--typography--inset--left:  -0.055;
+	--typography--inset--right: -0.054;
+
+	--typography--underline:         0.063;
+	--typography--underline--shift: -0.052;
+	--typography--underline--skip:   0.085;
+}
+
+%font--sf--mono--medium {
+	@extend %--sf--mono;
+
+	--typography--weight: 500;
+
+	--typography--inset--left:  -0.052;
+	--typography--inset--right: -0.049;
+
+	--typography--underline:         0.069;
+	--typography--underline--shift: -0.041;
+	--typography--underline--skip:   0.101;
+}
+
+%font--sf--mono--semibold {
+	@extend %--sf--mono;
+
+	--typography--weight: 600;
+
+	--typography--inset--left:  -0.049;
+	--typography--inset--right: -0.043;
+
+	--typography--underline:         0.076;
+	--typography--underline--shift: -0.027;
+	--typography--underline--skip:   0.117;
+}
+
+%font--sf--mono--bold {
+	@extend %--sf--mono;
+
+	--typography--weight: 700;
+
+	--typography--inset--left:  -0.045;
+	--typography--inset--right: -0.037;
+
+	--typography--underline:         0.086;
+	--typography--underline--shift: -0.007;
+	--typography--underline--skip:   0.117;
+}
+
+%font--sf--mono--heavy {
+	@extend %--sf--mono;
+
+	--typography--weight: 800;
+
+	--typography--inset--left:  -0.037;
+	--typography--inset--right: -0.024;
+
+	--typography--underline:        0.099;
+	--typography--underline--shift: 0.018;
+	--typography--underline--skip:  0.117;
+}
+
+
+
+// CMU.
+%font--cmu--regular {
+	@extend %--cmu;
+
+	--typography--weight: 400;
+
+	--typography--inset--left:  -0.037;
+	--typography--inset--right: -0.028;
+
+	--typography--underline:         0.031; // Serif height.
+	--typography--underline--shift: -0.178;
+	--typography--underline--skip:   0.081;
+}
+
+%font--cmu--bold {
+	@extend %--cmu;
+
+	--typography--weight: 700;
+
+	--typography--inset--left:  -0.040;
+	--typography--inset--right: -0.032;
+
+	--typography--underline:         0.031;
+	--typography--underline--shift: -0.178;
+	--typography--underline--skip:   0.118;
+}
+
+
+
+// Olde Emojye.
+%font--wingdings { font-family: 'Wingdings' }
+
+
+
+
+
+
+%font--underline {
+	--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
+	--typography--text-shadow:          calc(var(--typography--underline--skip) * 1em);
+	--typography--underline-offset:     calc(var(--typography--underline--shift) * 1em);
+
+	text-decoration-color:     var(--color);
+	text-decoration-line:      underline;
+	text-decoration-thickness: var(--typography--decoration-thickness);
+	text-underline-offset:     calc(-1 * var(--typography--underline-offset) + var(--typography--decoration-thickness) + var(--typography--underline-offset--extra, 0em));
+
+	@include browser-specific(safari, firefox) {
+		-webkit-text-stroke-color: var(--color--background);
+		-webkit-text-stroke-width: calc(var(--typography--text-shadow) * 2);
+		paint-order:               stroke fill; // Fill on top!
+		text-decoration-skip-ink:  none;
+	}
+
+	@include browser-specific(chrome) { // Chrome doesn’t support `paint-order`, so use a shadow.
+		text-shadow: // Clear the descenders, if we know the background color.
+			var(--color--background) var(--typography--text-shadow) 0, // “East”
+			var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 7), // “Southeast”
+			var(--color--background) 0 calc(var(--typography--text-shadow) / 7), // “South”
+			var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 7), // “Southwest”
+			var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, // “West”
+			var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 7), // “Northwest”
+			var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 7), // “North”
+			var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 7) // “Northeast”
+			;
+	}
+}
+
+%font--underline--disable {
+	-webkit-text-stroke: initial;
+	paint-order:         initial;
+	text-decoration:     initial;
+	text-shadow:         initial;
+}
+
+
+
+// iOS Wingdings “fix”.
+@include browser-specific(safari--mobile) {
+	@font-face {
+		font-family: "Wingdings";
+		src: url('https://db.onlinewebfonts.com/t/e991cc888d4fb544fe0a88d065ab6efc.woff2') format('woff2');
+	}
+}
+
+@font-face {
+	font-family: 'CMU Serif';
+	src: url('cmu/CMUSerif-Italic.woff2') format('woff2'),
+			url('cmu/CMUSerif-Italic.woff') format('woff');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'CMU Serif';
+	src: url('cmu/CMUSerif-Bold.woff2') format('woff2'),
+			url('cmu/CMUSerif-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CMU Serif';
+	src: url('cmu/CMUSerif-Roman.woff2') format('woff2'),
+			url('cmu/CMUSerif-Roman.woff') format('woff');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CMU Serif';
+	src: url('cmu/CMUSerif-BoldItalic.woff2') format('woff2'),
+			url('cmu/CMUSerif-BoldItalic.woff') format('woff');
+	font-weight: bold;
+	font-style: italic;
+}
+

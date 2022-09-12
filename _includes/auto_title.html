@@ -1,0 +1,10 @@
+{%- include auto_date.html -%}
+{%- assign current_time = site.time | date: '%s' -%}
+{%- assign date_time = date | date: '%s' -%}
+{%- if page.layout == 'week' -%}
+	{%- assign title = page.name | split: '.' | first | prepend: 'Week ' -%}
+	{%- assign title_date = title | append: ', ' | append: date -%}
+{%- else -%}
+	{%- assign title = page.title -%}
+	{%- assign title_date = title -%}
+{%- endif -%}

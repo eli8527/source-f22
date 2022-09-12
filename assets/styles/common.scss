@@ -1,0 +1,249 @@
+---
+# Front-matter to make Jekyll process this file (render to CSS).
+---
+
+
+
+@use "utilities" as *;
+
+@use 'reset';
+@use 'typography';
+@use 'fonts';
+@use 'links';
+
+
+
+:root {
+	@extend %font--cmu--regular;
+
+	--typography--leading:        1.25;
+	--typography--leading--tight: 1;
+	--typography--leading--base:  var(--typography--leading); // For resets.
+
+	--typography--size: 1.8rem;
+
+	--typography--size--h1:   calc(var(--typography--size) * 3);
+	--typography--size--h2:   calc(var(--typography--size) * 1.6);
+	--typography--size--h3:   calc(var(--typography--size) * 1.333);
+	--typography--size--h4:   calc(var(--typography--size) * 1.2); // Really only in syllabus.
+	--typography--size--base: var(--typography--size); // For resets.
+
+	--margin:           2.4rem;
+	--margin--vertical: var(--margin);
+
+	--margin--vertical--2: calc(var(--margin--vertical) * 2);
+	--margin--vertical--4: calc(var(--margin--vertical) * 4);
+
+	--page--width: 100vw;
+
+	--divider--width:     0.1rem;
+	--divider--width--h1: 0.3rem; // Approx e-crossbar on the `h1`.
+
+	--color:             black;
+	--color--background: white;
+
+	--color--links:          black;
+	--color--links--reverse: white ;
+
+	--color--highlight:          hsl(0, 0%, 0%, 3.333%);
+	--color--highlight--reverse: hsl(0, 0%, 100%, 6.666%);
+
+	--color--transition: 200ms;
+
+	--link--color:       var(--color--links);
+	--link--enlargement: 0.4rem;
+	--link--highlight:   var(--color--highlight);
+	--link--outline:     0.2rem;
+
+	--link--hover--opacity:    0.666;
+	--link--hover--transition: 100ms;
+
+	--alpha--inactive: 0.333;
+
+	scroll-behavior: smooth;
+
+	@include hover {
+		--color--highlight:          hsl(0, 0%, 0%, 5%); // Denser to offset hover opacity.
+		--color--highlight--reverse: hsl(0, 0%, 100%, 20%);
+	}
+
+	@include browser-specific(safari--mobile) {
+		--color--highlight:          hsl(0, 0%, 0%, 10%);
+		--color--highlight--reverse: hsl(0, 0%, 100%, 20%);
+	}
+
+	@include breakpoint(320) { --typography--size: calc((18/375) * 100vw) }
+
+	@include breakpoint(768) {
+		--typography--size: 2rem;
+
+		--typography--size--h1: calc(var(--typography--size) * 5);
+		--typography--size--h2: calc(var(--typography--size) * 2);
+
+		--margin: 3.6rem;
+
+		--divider--width--h1: 0.4rem;
+
+		--link--enlargement: 0.8rem;
+	}
+
+	@include breakpoint(1024) {
+		--margin:      4.8rem;
+		--page--width: 102.4rem;
+	}
+
+	@include landscape { --margin--vertical: calc(var(--margin) * 0.75) }
+	@include tall      { --margin--vertical: var(--margin) }
+}
+
+
+
+// The main column constraints.
+%--page-container {
+	margin-left:   auto;
+	margin-right:  auto;
+	max-width:     var(--page--width);
+	padding-left:  calc(var(--margin) + env(safe-area-inset-left, 0rem));
+	padding-right: calc(var(--margin) + env(safe-area-inset-right, 0rem));
+	width:         100%;
+}
+
+
+
+// Flip the colors.
+%--reverse {
+	--color--background--parent: var(--color--background);
+
+	--link--color:     var(--color--links--reverse);
+	--link--highlight: var(--color--highlight--reverse);
+
+	background-color: var(--color--links);
+
+	> * {
+		--color:             var(--color--background--parent);
+		--color--background: var(--color--links);
+	}
+}
+
+
+
+body {
+	@extend %--reverse;
+
+	// Basics.
+	h1,
+	h2,
+	h3,
+	h4 {
+		scroll-margin-top: var(--margin--vertical--4);
+	}
+
+	h1 { --typography--size: var(--typography--size--h1) }
+	h2 { --typography--size: var(--typography--size--h2) }
+	h3 { --typography--size: var(--typography--size--h3) }
+	h4 { --typography--size: var(--typography--size--h4) }
+
+	main {
+		@extend %--page-container;
+
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--margin--vertical--4);
+		margin-top: var(--margin--vertical--4);
+		margin-bottom: var(--margin--vertical--4);
+
+		header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		nav {
+			ul {
+				display: flex;
+				gap: var(--margin);
+				justify-content: center;
+
+				a {
+					@extend %link--text;
+				}
+			}
+		}
+
+		@import 'markdown';
+	}
+
+	&.index {
+		main {
+			> article * {
+				max-width: initial;
+			}
+
+			> aside {
+				text-align: center;
+
+				a {
+					@extend %link--text;
+					@extend %font--underline;
+				}
+			}
+		}
+
+		section {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: var(--margin);
+			text-align: center;
+			
+			ul {
+				@extend %type--layout;
+
+				margin-top: var(--margin);
+				display: grid;
+				gap: var(--typography--between);
+				
+				a {
+					@extend %link--text;
+				}
+			}
+		}
+	}
+
+	&.schedule {
+		section {
+			ul {
+				@extend %type--layout;
+
+				display: grid;
+				text-align: center;
+				gap: var(--margin);
+
+				li {
+
+					&.inactive {
+						opacity: 0.4;
+					}
+
+					a {
+						@extend %link--text;
+					}
+	
+					p {
+						margin-top: var(--typography--line-height);
+					}
+				}
+			
+			}
+		}
+	}
+
+	&.week {
+		#recording {
+			text-align: center;
+			
+			a {
+				@extend %font--underline--disable;
+			}
+		}
+	}
+}

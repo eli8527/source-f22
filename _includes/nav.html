@@ -1,0 +1,27 @@
+{% assign index = site.pages | where: 'layout', 'index' | first %}
+<nav>
+	<ul>
+		{% if page.url != index.url %}
+			<li>
+				<p>
+					<a href="/">&#x25CF;</a>
+				</p>
+			</li>
+		{% endif %}
+		<li>
+			<p>
+				<a href="/schedule/">Schedule</a>
+			</p>
+		</li>
+		<li>
+			<p>
+				<a href="/projects/">Projects</a>
+			</p>
+		</li>
+		<li>
+			<p>
+				<a href="/readings/">Readings</a>
+			</p>
+		</li>
+	</ul>
+</nav>

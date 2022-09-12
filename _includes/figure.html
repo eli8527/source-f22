@@ -1,0 +1,19 @@
+<figure markdown="0"{% if include.class %} class="{{ include.class }}"{% endif %}{% if include.height %} style="--max--height: {{ include.height }}vh;"{% endif %}>
+	{% if include.src contains 'jpg' or include.src contains 'png' or include.src contains 'gif' or include.src contains 'svg' %}
+		<img src="{{ include.src }}">
+	{% elsif include.src contains 'http' %}
+		<iframe allowfullscreen src="{{ include.src }}"></iframe>
+	{% endif %}
+	{% if include.caption or include.credit %}
+		<figcaption>
+			{%- if include.caption -%}
+				{{- include.caption | markdownify | remove: '<p>' | remove: '</p>' | strip -}}
+			{%- endif -%}
+			{%- if include.credit -%}
+				<cite>
+					<a href="{{ include.credit}}"></a>
+				</cite>
+			{%- endif -%}
+		</figcaption>
+	{% endif %}
+</figure>

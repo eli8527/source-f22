@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+
+<main>
+	<header>
+		<h1>{{ page.title }}</p></h1>
+	</header>
+	{% include nav.html%}
+	<article>
+		{{ content }}
+	</article>
+	<section>
+		<div>
+			<h2>Resources</h2>
+			<ul>
+				{% for link in page.links %}
+					<li>
+						<p><a href="{{link.url}}">{{link.name}}</a></p>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div>
+			<h2>Participants</h2>
+			<ul>
+				{% for person in site.data.participants %}
+					<li>
+						<p><a href="{{person.url}}">{{person.name}}</a></p>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+	<aside>{{page.about | newline_to_br  | markdownify}}</aside>
+	<aside>{{page.acknowledgement | newline_to_br  | markdownify}}</aside>
+</main>
+

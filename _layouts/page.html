@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+
+
+
+{% include auto_title.html %}
+<main>
+	{% if title %}
+		<header>
+			<h1>{{- title | kerning_spans | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines -}}</h1>
+		</header>
+	{% endif %}
+	{% include nav.html %}
+	<article>
+		{{ content | kerning_spans_content }}
+	</article>
+	{% include footer.html %}
+</main>
