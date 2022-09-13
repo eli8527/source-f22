@@ -253,7 +253,7 @@ body main > article p strong,
 	--typography--inset--left: -0.037;
 	--typography--inset--right: -0.028;
 	--typography--underline: 0.031;
-	--typography--underline--shift: -0.178;
+	--typography--underline--shift: -0.132;
 	--typography--underline--skip: 0.081;
 }
 
@@ -261,8 +261,8 @@ body main > article p strong {
 	--typography--weight: 700;
 	--typography--inset--left: -0.040;
 	--typography--inset--right: -0.032;
-	--typography--underline: 0.031;
-	--typography--underline--shift: -0.178;
+	--typography--underline: 0.047;
+	--typography--underline--shift: -0.100;
 	--typography--underline--skip: 0.118;
 }
 
@@ -432,7 +432,7 @@ body.schedule section ul li a {
 	--typography--size--h3: calc(var(--typography--size) * 1.333);
 	--typography--size--h4: calc(var(--typography--size) * 1.2);
 	--typography--size--base: var(--typography--size);
-	--margin: 2.4rem;
+	--margin: 1.8rem;
 	--margin--vertical: var(--margin);
 	--margin--vertical--2: calc(var(--margin--vertical) * 2);
 	--margin--vertical--4: calc(var(--margin--vertical) * 4);
@@ -482,7 +482,7 @@ body.schedule section ul li a {
 		--typography--size: 2rem;
 		--typography--size--h1: calc(var(--typography--size) * 5);
 		--typography--size--h2: calc(var(--typography--size) * 2);
-		--margin: 3.6rem;
+		--margin: 2.8rem;
 		--divider--width--h1: 0.4rem;
 		--link--enlargement: 0.8rem;
 	}
