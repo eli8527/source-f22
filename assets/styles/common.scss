@@ -28,7 +28,7 @@
 	--typography--size--h4:   calc(var(--typography--size) * 1.2); // Really only in syllabus.
 	--typography--size--base: var(--typography--size); // For resets.
 
-	--margin:           2.4rem;
+	--margin:           1.8rem;
 	--margin--vertical: var(--margin);
 
 	--margin--vertical--2: calc(var(--margin--vertical) * 2);
@@ -80,7 +80,7 @@
 		--typography--size--h1: calc(var(--typography--size) * 5);
 		--typography--size--h2: calc(var(--typography--size) * 2);
 
-		--margin: 3.6rem;
+		--margin: 2.8rem;
 
 		--divider--width--h1: 0.4rem;
 
