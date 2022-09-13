@@ -1,6 +1,11 @@
 ---
 title: Projects
 ---
+
+Throughout this course, we’ll focus on three projects that’ll synthesize what we talk about in class. They are, in part, a way to apply some of the technical skills you learn in class, but also a way to explore ideas and thoughts you have related to your practice. 
+
+If there are directions you want to take these projects that relate to your own work, I strongly encourage you to do so. Consider these prompts as jumping off points rather than as prescriptive instructions.
+
 ## Project 1: World as Source
 
 ### Part 1
@@ -12,6 +17,8 @@ Document a routine of yours that you do at least once a week. It should have at 
 * Checking your email
 * Going to Boston
 * Cleaning your room
+* Organizing your computer
+* Journaling
 
 Create a folder with your name on it within [this folder](https://drive.google.com/drive/folders/1QBUpW2Ruhp3MmVz7PF9qfcxWkaEhWPj7?usp=sharing) and put your instructions in a Google Doc.
 
