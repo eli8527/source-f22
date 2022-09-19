@@ -5,7 +5,7 @@ about: |
   GRAPH-330G-01 (22681), Graduate Studio Elective
   CIT/Mason Building, Room 502
   Tuesdays, 1:10–6:10 PM
-acknowledgement: Many thanks to [Michael Fehrenbach](https://michaelfehrenbach.com/), [Laurel Schwulst](https://www.laurel.world/), [David Reinfurt](http://www.davidreinfurt.com/), and [Nazlı Ercan](https://nazli-ercan.com/) for words of wisdom, advice, code, and more to help shape this course.
+acknowledgement: Many thanks to [Michael Fehrenbach](https://michaelfehrenbach.com/), [Laurel Schwulst](https://www.laurel.world/), [David Reinfurt](http://www.davidreinfurt.com/), [Neeta Patel](https://neeta.works/), and [Nazlı Ercan](https://nazli-ercan.com/) for words of wisdom, advice, code, and more to help shape this course.
 links:
   - name: Slack
     url: https://sourcef22.slack.com
