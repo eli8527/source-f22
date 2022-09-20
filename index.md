@@ -15,6 +15,8 @@ links:
     url: https://drive.google.com/drive/folders/1HwTLRw-4JgyCVjm2t0TPPofEdl3cYUNi?usp=sharing
   - name: Syllabus
     url: https://docs.google.com/document/d/10pO-6spg9bbZwRMAROQ0dhqmqibWVXVQy00xdJ__fTI/edit?usp=sharing
+  - name: Meeting Time Sign Up
+    url: https://docs.google.com/spreadsheets/d/1aKYC62G33C3cRihnkBeMfyp4AWqv8ZuU6QfkiJxL5ug/edit?usp=sharing
   - name: RISD Code Lab
     url: http://risdcodelab.org/
 ---
