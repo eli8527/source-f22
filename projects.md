@@ -33,10 +33,10 @@ Design a website for your routine, and layout both its instructions and the exec
 ## Project 2: Web as Source
 
 ### Part 1
-On Are.na, start a channel of a web trend or topic of your choice. You can focus on how websites across the web present one specific element (such as how different museums present their collection, what _Add to cart_ buttons look like, what the focus state of elements look like), or how one specific website handles many things (how are images presented in different contexts and pages, what is the tone of voice for different pages). Use Are.na to collect your research.
+On Are.na, start a channel of a web trend or topic of your choice. You can focus on how websites across the web present one specific element (such as how different museums present their collection, what _Add to cart_ buttons look like, what the focus state of elements look like, how what checkout flows look like, use of typefaces), or how one specific website handles many things (how are images presented in different contexts and pages, what is the tone of voice for different pages). Use Are.na to collect your research.
 
 ### Part 2 
-Design and build a website that creatively re-interprets your research from the first part. You can build a webpage which presents your findings in interesting ways, write a custom stylesheet for an existing website, or iframe existing websites into your website to provide a new perspective. Or if you have another approach, let me know.
+Design and build a website that creatively re-interprets your research from the first part. You can build a webpage which presents your findings in interesting ways, write a custom stylesheet for an existing website, or iframe existing websites into your website to provide a new perspective. Other examples include creating a custom CSS/HTML typeface, a reinvention of a site’s existing interface, etc. Or if you have another approach, let me know.
 
 ---
 
