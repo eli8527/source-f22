@@ -14,11 +14,11 @@ title: Readings
 
 - [Default Systems in Graphic Design](https://linedandunlined.com/archive/default-systems-in-graphic-design/), Rob Giampietro
 
-- [Life After Lifestyle](https://subpixel.space/entries/life-after-lifestyle/), Toby Shorin
-
 - [Music for Airports](https://www.youtube.com/watch?v=vNwYtllyt3Q), Brian Eno
 
 - [Dispersion](http://www.distributedhistory.com/Dispersion2007.comp.pdf), Seth Price
+
+- [Life After Lifestyle](https://subpixel.space/entries/life-after-lifestyle/), Toby Shorin
 
 - [Speech Sounds](https://www.unl.edu/english/docs/englishweek17/engl200-speechsounds.pdf), Octavia Butler
 
