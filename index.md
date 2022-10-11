@@ -13,6 +13,8 @@ links:
     url: https://risd.zoom.us/j/92964280075?pwd=Qm1nUGZMeGhwY09XbkxSYVg1TUZQZz09
   - name: Drive
     url: https://drive.google.com/drive/folders/1HwTLRw-4JgyCVjm2t0TPPofEdl3cYUNi?usp=sharing
+  - name: Are.na
+    url: https://www.are.na/source-fall-2022
   - name: Syllabus
     url: https://docs.google.com/document/d/10pO-6spg9bbZwRMAROQ0dhqmqibWVXVQy00xdJ__fTI/edit?usp=sharing
   - name: Meeting Time Sign Up
