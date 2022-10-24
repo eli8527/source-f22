@@ -43,10 +43,16 @@ Design and build a website that creatively re-interprets your research from the 
 ## Project 3: Source as Source
 
 ### Part 1
-Pick a source of your choice. Perhaps it is a tool you’ve recently used, or a text that has spoken to you, or a road sign you pass every day. Perhaps it’s another person, or your phone’s alarm, or perhaps its source code.  Research this source and its history, collecting your findings into an are.na board. 
+Pick a source of your choice. Perhaps it is a tool you’ve recently used, or a text that has spoken to you, or a sign that you pass every day. Perhaps it’s another person, or your phone’s alarm, or perhaps its some source code. Research this source and its history, collecting your findings into an are.na board. 
+
+Present on November 1
 
 ### Part 2
-Write on how this source influences your life and postulate what you might do differently. Consider this essay that I wrote, _[Taking a Walk across the Internet](https://www.moma.org/magazine/articles/677)_.
+Write an essay on the history of your source, and how this source influences your life. Then, conceptualize and propose how creative use or misuse of your source might expand one’s perceptions of it. Consider this essay that I wrote, [*Taking a Walk across the Internet*](https://www.moma.org/magazine/articles/677), Rob Giampietro’s [*I am a handle*](https://linedandunlined.com/archive/i-am-a-handle/), or Angie Keefer’s [*WHY BOTHER?*](https://www.servinglibrary.org/journal/2/why-bother).
+
+Links due on November 15
 
 ### Part 3
-Make a website or digital tool which creatively pushes the boundaries of your source.
+Make a website or digital tool which creatively pushes the boundaries of your source and also incorporates the text of your essay from Part 2.
+
+Present on December 6
