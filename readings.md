@@ -20,6 +20,8 @@ title: Readings
 
 - [Life After Lifestyle](https://subpixel.space/entries/life-after-lifestyle/), Toby Shorin
 
+- [Speculative Everything](https://readings.design/PDF/speculative-everything.pdf), Anthony Dunne & Fiona Raby
+
 - [What is Generative Art?](https://www.philipgalanter.com/downloads/ga2003_paper.pdf), Philip Galanter
 
 - [Speech Sounds](https://www.unl.edu/english/docs/englishweek17/engl200-speechsounds.pdf), Octavia Butler
