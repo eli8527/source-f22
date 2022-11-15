@@ -22,9 +22,7 @@ title: Readings
 
 - [Speculative Everything](https://readings.design/PDF/speculative-everything.pdf), Anthony Dunne & Fiona Raby
 
-- [What is Generative Art?](https://www.philipgalanter.com/downloads/ga2003_paper.pdf), Philip Galanter
-
-- [Speech Sounds](https://www.unl.edu/english/docs/englishweek17/engl200-speechsounds.pdf), Octavia Butler
+- [Who is the Author](http://manovich.net/content/04-projects/035-models-of-authorship-in-new-media/32_article_2002.pdf), Lev Manovich
 
 <br>
 If you have additional readings you’d like for us to read for later in the semester, let me know and I will add it to our schedule and list.
